@@ -1,0 +1,169 @@
+<div class="p-grid p-nogutter barber-landing-page">
+    <!-- Header Section -->
+    <div class="header">
+      <div class="logo-container">
+        <!-- Logo -->
+        <img class= "logo"src="assets/logo.png" alt="logo">
+      </div>
+      <nav class="menu-container">
+        <!-- Menu -->
+        <ul class="menu">
+          <li class="menu-item" (click)="scrollToSection('home')">Home</li>
+          <li class="menu-item" (click)="scrollToSection('services')">Services</li>
+          <li class="menu-item" (click)="scrollToSection('team')">Team</li>
+          <button *ngIf="!showLoginForm" class="menu-item btn-google" (click)="loginWith()">Login</button>
+          <button *ngIf="showLoginForm" class="menu-item btn-google" (click)="Booking()">Booking</button>
+
+        </ul>
+      </nav>
+    </div>
+  
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+
+    <div id="home" class="hero-section">
+      <div class="hero-container">
+        <!-- Content Section -->
+        <div *ngIf="showLoginForm" class="login-form-container">
+          <h2>Login</h2>
+          <form (ngSubmit)="onLoginSuccess()">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="loginData.email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                [(ngModel)]="loginData.password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+            <button type="submit">Login</button>
+          </form>
+        </div>
+        <div *ngIf="!showLoginForm" id="home" class="hero-section">
+
+        <div class="hero-content">
+          <h1 class="hero-title animate__animated animate__fadeInUp">
+            Stand Out with a Fresh Look
+          </h1>
+          <p class="hero-subtitle animate__animated animate__fadeInUp">
+            Discover top-notch barbering services tailored just for you. Book your slot today and let our professionals redefine your style.
+          </p>
+          <button
+            pButton
+            type="button"
+            label="Book Now"
+            class="btn-primary animate__animated animate__fadeInUp"
+            (click)="showBookingDialog()"
+          ></button>
+        </div>
+        </div>
+  
+        <!-- <div class="hero-content">
+          <h1 class="hero-title animate__animated animate__fadeInUp">
+            Stand Out with a Fresh Look
+          </h1>
+          <p class="hero-subtitle animate__animated animate__fadeInUp">
+            Discover top-notch barbering services tailored just for you. Book your slot today and let our professionals redefine your style.
+          </p>
+          <button
+            pButton
+            type="button"
+            label="Book Now"
+            class="btn-primary animate__animated animate__fadeInUp"
+            (click)="showBookingDialog()"
+          ></button>
+        </div> -->
+  
+        <p-dialog
+          [(visible)]="isDialogVisible"
+          [modal]="true"
+          [closable]="true"
+          [style]="{ width: '90vw',height:'70vh' }"
+        >
+
+          <app-booking></app-booking>
+        </p-dialog>
+      </div>
+    </div>
+  
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="services-header">
+        <h2>Services We Offered!</h2>
+      </div>
+      <div class="services-container">
+        <div class="service-card">
+          <i class="fas fa-cut service-icon"></i>
+          <h3 class="service-title">Scissor Cut</h3>
+          <p class="service-description">
+            Never in all their history have men been able truly to conceive of the world as one a single sphere.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-razor service-icon"></i>
+          <h3 class="service-title">Razor Cut</h3>
+          <p class="service-description">
+            Never in all their history have men been able truly to conceive of the world as one a single sphere.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-head-side-mask service-icon"></i>
+          <h3 class="service-title">Head Shave</h3>
+          <p class="service-description">
+            Never in all their history have men been able truly to conceive of the world as one a single sphere.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-cut service-icon"></i>
+          <h3 class="service-title">Clipper Cut</h3>
+          <p class="service-description">
+            Never in all their history have men been able truly to conceive of the world as one a single sphere.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Team Section -->
+    <div id="team" class="p-col-12 team-section">
+      <h2>Meet Our Team</h2>
+      <div class="p-grid p-nogutter p-d-flex p-jc-center">
+        <div class="team-member p-m-2">
+          <img src="assets/hero-bg.png" alt="John Doe">
+          <h4>John Doe</h4>
+          <p>Master Barber</p>
+        </div>
+        <div class="team-member p-m-2">
+          <img src="assets/hero-bg.png" alt="Jane Smith">
+          <h4>Jane Smith</h4>
+          <p>Stylist</p>
+        </div>
+        <div class="team-member p-m-2">
+          <img src="assets/hero-bg.png" alt="Mike Brown">
+          <h4>Mike Brown</h4>
+          <p>Beard Specialist</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Footer Section -->
+    <div class="p-col-12 footer p-d-flex p-jc-center p-ai-center">
+      <p>&copy; 2024 BarberPro. All rights reserved.</p>
+    </div>
+  </div>
+  
+  
+  
+  

@@ -1,0 +1,102 @@
+/* Container for the dashboard with a full-page background */
+.dashboard-container {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  background-image: url('../../assets/hero-bg1.png'); /* Replace with your image URL */
+  background-attachment: fixed; /* Ensures the background stays fixed while scrolling */
+}
+
+/* Styling for the table with a modern border, padding, and a shadow effect */
+.p-table {
+  background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for the table */
+  border-radius: 15px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px; /* Max width for better responsiveness */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a floating effect */
+  border: 2px solid #e0e0e0; /* Light gray border around the table */
+}
+
+/* Title styling with padding and centered alignment */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Styling for the table header, bold and with additional spacing */
+.p-table-header {
+  font-weight: bold;
+  color: #333; /* Darker text for better contrast */
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #e0e0e0; /* Border under the header */
+}
+
+/* Buttons with consistent margin and modern rounded style */
+.p-button {
+  margin: 5px;
+  border-radius: 50px; /* Rounded edges */
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.p-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Selectable rows with pointer cursor and hover effect */
+.p-selectable-row {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.p-selectable-row:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+}
+
+/* Styling for table checkboxes */
+.p-tableCheckbox {
+  margin: 0;
+}
+
+/* Input text field for search with larger width */
+.p-inputtext {
+  width: 250px; /* Increase width for better usability */
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+/* Table row hover effect */
+.p-table tbody tr:hover {
+  background-color: #f9f9f9; /* Light background color for row hover */
+}
+
+/* Add a border around the entire page for a polished look */
+.dashboard-container {
+  border: 5px solid rgba(255, 255, 255, 0.2); /* Soft border around the container */
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px; /* Margin for spacing between the content and the page edges */
+  background-color: rgba(0, 0, 0, 0.5); /* Slight dark background behind the container */
+}
+
+/* Add a box shadow around the whole container */
+.dashboard-container {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}

@@ -1,0 +1,87 @@
+<div class="dashboard-container">
+  <h2>Reservations</h2>
+
+  <p-table 
+    #dt 
+    [value]="reservations" 
+    [(selection)]="selectedReservations" 
+    dataKey="id"
+    [rowHover]="true" 
+    [rows]="10" 
+    [showCurrentPageReport]="true" 
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [paginator]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
+    [filterDelay]="0" 
+    [globalFilterFields]="['date', 'time', 'barber.name', 'user.name']">
+
+    <ng-template #caption>
+      <div class="flex justify-between">
+        <p-button [outlined]="true" icon="pi pi-filter-slash" label="Clear" (click)="clear(dt)" />
+        <p-iconField iconPosition="left">
+          <p-inputIcon>
+            <i class="pi pi-search"></i>
+          </p-inputIcon>
+        </p-iconField>
+      </div>
+    </ng-template>
+
+    <ng-template #header>
+      <tr>
+        <th style="width: 4rem">
+          <p-tableHeaderCheckbox />
+        </th>
+        <th pSortableColumn="date" style="min-width: 14rem">
+          <div class="flex justify-between items-center">
+            Date
+            <p-sortIcon field="date" />
+            <p-columnFilter type="date" field="date" display="menu" class="ml-auto" />
+          </div>
+        </th>
+        <th pSortableColumn="time" style="min-width: 14rem">
+          <div class="flex justify-between items-center">
+            Time
+            <p-sortIcon field="time" />
+            <p-columnFilter type="text" field="time" display="menu" class="ml-auto" />
+          </div>
+        </th>
+        <th pSortableColumn="barber.name" style="min-width: 14rem">
+          <div class="flex justify-between items-center">
+            Barber
+            <p-sortIcon field="barber.name" />
+            <p-columnFilter type="text" field="barber.name" display="menu" class="ml-auto" />
+          </div>
+        </th>
+        <th pSortableColumn="user.name" style="min-width: 14rem">
+          <div class="flex justify-between items-center">
+            Customer
+            <p-sortIcon field="user.name" />
+            <p-columnFilter type="text" field="user.name" display="menu" class="ml-auto" />
+          </div>
+        </th>
+        <th style="width: 5rem"></th>
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-reservation>
+      <tr class="p-selectable-row">
+        <td>
+          <p-tableCheckbox [value]="reservation" />
+        </td>
+        <td>{{ reservation.date | date: 'MM/dd/yyyy' }}</td>
+        <td>{{ reservation.time }}</td>
+        <td>{{ reservation.barber.name }}</td>
+        <td>{{ reservation.user.name }}</td>
+        <td style="text-align: center">
+          <p-button rounded icon="pi pi-cog" />
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template #emptymessage>
+      <tr>
+        <td colspan="6">No reservations found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
